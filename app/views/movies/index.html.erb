@@ -1,15 +1,15 @@
-  <h1>Movies#index</h1>
-<p>Find me in app/views/movies/index.html.erb</p> 
-<!-- <main>
+ <!-- <h1>Movies#index</h1> -->
+<!-- <p>Find me in app/views/movies/index.html.erb</p>  -->
+ <main>
 <% if  @movies != nil %>
   <section class="featured-movies">
     <h2>Movies</h2>
     <div class="movie-grid margin">
     <% @movies.each do |movie| %>
       <div class="movie"> 
-       <a href="/movies/<%= movie.id %>">
+        <a href="/movies/<%= movie.id %>">
         <%=image_tag movie.image ,class: "style_image" %> 
-        </a>
+        </a> 
         <h5 class="card-title">Movie : <%=movie.name%></h5>
         <h6><p class="card-text">Type :<%= movie.category.name %></p></h6>
         <% if movie.rating  != nil %>
@@ -65,10 +65,10 @@
     </div>
   </ul>
   <div class="footer-bottom">
-    <p>copyright &copy;2023 <a href="http://127.0.0.1:3000/">Movie Buzz</a>| Design By @ khushi</p>
+    <p>copyright &copy;2023 <a href="http://127.0.0.1:3000/">Movie Buzz</a></p>
   </div>
 </footer>
 
- -->
+ 
 
 

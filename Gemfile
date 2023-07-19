@@ -6,12 +6,12 @@ ruby "3.2.0"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.6"
 gem 'bootstrap'
-gem 'jquey-rails'
+gem 'jquery-rails'
 gem 'factory_bot_rails'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
-gem "image processing"
+gem "image_processing"
 gem 'will_paginate'
 gem 'will_paginate-bootstrap-style'
 
@@ -85,4 +85,3 @@ group :test do
   gem "webdrivers"
 end
 
-s
