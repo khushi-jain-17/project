@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
+  
   def index
-  end
+    @category = Category.where(name: params[:category])
+  end 
   
 end

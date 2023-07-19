@@ -34,6 +34,17 @@ class MoviesController < ApplicationController
   end
   def about 
   end
+  def search
+    @keyword = params[:search].downcase.strip
+    @search = Movie.where("lower(name) LIKE :keyword OR lower(description) LIKE :keyword OR released_on LIKE :keyword", keyword: "%#{@keyword}%")                   
+    category= Category. find_by("name LIKE :keyword", keyword: "%#{@keyword}%")if Category.name.present?
+    @search = category.movies  if category.present?   
+    if @search.present?
+      render 'search'
+    else
+      render 'search'
+    end 
+  end
 
   private
   def movie_params
