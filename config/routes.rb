@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users	 
   root "movies#index"
-  
+  get "/users/sign_out", to: "devise/sessions#destroy"
   get "/about" ,to: "movies#about"
   get "/search" ,to: "movies#search"
   resources :category
