@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users	 
   root "movies#index"
-  get 'categories/index'
+  
   get "/about" ,to: "movies#about"
   get "/search" ,to: "movies#search"
+  resources :category
   resources :movies
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

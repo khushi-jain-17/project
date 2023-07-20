@@ -32,8 +32,16 @@ class MoviesController < ApplicationController
   		render :edit, status: :unprocessable_entity, alert: "error updating the movie"
   	end
   end
+
+  def destroy
+    @movie.destroy
+    redirect_to root_path, status: :see_other,
+    notice: "Successfully Deleted Movie!"
+  end
+
   def about 
   end
+
   def search
     @keyword = params[:search].downcase.strip
     @search = Movie.where("lower(name) LIKE :keyword OR lower(description) LIKE :keyword OR released_on LIKE :keyword", keyword: "%#{@keyword}%")                   
