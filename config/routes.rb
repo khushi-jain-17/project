@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   get "/about" ,to: "movies#about"
   get "/search" ,to: "movies#search"
   resources :category
-  resources :movies
+  resources :movies do
+  	resources :reviews
+  end
+  	
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
