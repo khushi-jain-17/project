@@ -4,4 +4,5 @@ class CategoriesController < ApplicationController
     @category = Category.where(name: params[:category])
   end 
   
+
 end
