@@ -1,19 +1,24 @@
+
 <main>
   <section class="featured-movies">
-    <h2>Movies <%=@category.first.name%></h2>
+    <h2>Movies <%= @category.first.name %></h2>
     <div class="movie-grid margin">
-    <% @category.first.movies.each do |movie| %>
-      <div class="movie">
-        <%=image_tag movie.image ,class: "style_image" %> 
-        <h5 class="card-title">Movie : <%=movie.name%></h5>
-        <h6><p class="card-text">Type :<%= movie.category.name %></p></h6>
-        <h6><p class="card-text">Rating :<%=movie.rating%><span class="fa fa-star checked"></p></h6>
-        <h6><p class="card-text">Released_on :<%=movie.released_on%></p></h6>
-        <%= link_to 'Details', movie %>
-      </div>
-    <% end %>
+      <% @category.first.movies.each do |movie| %>
+        <div class="movie">
+          <% if movie.image.present? %>
+            <%= image_tag movie.image, class: "style_image" %>         
+          <% end %>
+
+          <h5 class="card-title">Movie: <%= movie.name %></h5>
+          <h6><p class="card-text">Type: <%= movie.category.name %></p></h6>
+          <h6><p class="card-text">Rating: <%= movie.rating %><span class="fa fa-star checked"></p></h6>
+          <h6><p class="card-text">Released_on: <%= movie.released_on %></p></h6>
+          <%= link_to 'Details', movie %>
+        </div>
+      <% end %>
     </div>
-</section>
+  </section>
+</main>
 
 <footer class='footer-content'>
   <h3>Movie Buzz</h3>
@@ -59,5 +64,6 @@
     <p>copyright &copy;2023 <a href="http://127.0.0.1:3000/">Movie Buzz</a> </p>
   </div>
 </footer>
+
 
 

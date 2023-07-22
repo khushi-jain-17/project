@@ -1,8 +1,9 @@
 class CategoriesController < ApplicationController
-  
   def index
-    @category = Category.where(name: params[:category])
-  end 
-  
-
+    if params[:category].present?
+      @category = Category.where(name: params[:category])
+    else
+      @category = Category.all
+    end
+  end
 end

@@ -1,5 +1,5 @@
 
- <main>
+<main>
 <% if  @movies != nil %>
   <section class="featured-movies">
     <h2>Movies</h2>
@@ -7,8 +7,11 @@
     <% @movies.each do |movie| %>
       <div class="movie"> 
         <a href="/movies/<%= movie.id %>">
-         
-        </a> 
+          <% if movie.image.present? %>
+            <%= image_tag movie.image, class: "style_image" %>
+       
+          <% end %>
+         </a>
         <h5 class="card-title">Movie : <%=movie.name%></h5>
         <h6><p class="card-text">Type :<%= movie.category.name %></p></h6>
         <% if movie.rating  != nil %>
@@ -17,7 +20,7 @@
         <h6><p class="card-text">Released_on :<%=movie.released_on%></p></h6>
       </div>
     <% end %>
-    </div>           
+    </div>
      <% end %>
   </section>
   
@@ -59,15 +62,14 @@
         <a href="https://www.linkedin.com/in/mobirise">
           <span class="mbr-iconfont fa-linkedin fa"></span>
         </a>
-      </div>
-    
+      </div>   
     </div>
   </ul>
   <div class="footer-bottom">
-    <p>copyright &copy;2023 <a href="http://127.0.0.1:3000/">Movie Buzz</a></p>
+    <p>copyright &copy;2023 <a href="http://127.0.0.1:3000/">Movie Buzz</a> </p>
   </div>
 </footer>
 
- 
+
 
 
