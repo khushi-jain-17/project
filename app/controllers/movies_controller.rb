@@ -1,4 +1,7 @@
 class MoviesController < ApplicationController
+  before_action :authenticate_user! ,only: [:create,:edit,:destroy,:update]
+  before_action :movie_object ,only: [:show,:edit,:destroy,:update]
+
   def index
     if params[:filter] == "upcomming"
       @movies = Movie.where("released_on > ?",Date.today)
@@ -8,23 +11,28 @@ class MoviesController < ApplicationController
       @movies = Movie.all
     end
   end
+
   def show
   	@movie 
   end
+
   def new
   	@movie= Movie.new
   end
+
   def create
-  	@movie=current.user.movies.new(movie_params)
+  	@movie=current_user.movies.new(movie_params)
   	if @movie.save
   		redirect_to @movie, notice: "successfully created movie"
   	else
   		render :new, status: :unprocessable_entity
   	end
   end	
+
   def edit
   	@movie
   end
+
   def update
   	if @movie.update(movie_params)
   		redirect_to @movie, notice: "successfully updated"
@@ -55,9 +63,11 @@ class MoviesController < ApplicationController
   end
 
   private
+
   def movie_params
   	params.require(:movie).permit(:name,:rating,:description,:director,:released_on,:category_id,:image)
   end
+
   def movie_object
   	@movie=Movie.find(params[:id])
   end

@@ -1,11 +1,17 @@
 <div class="container">
   <div class="image">
-    <%= image_tag @movie.image ,size:20*20,class: "style_image" %>
+    <% if @movie.present? %>
+      <%= image_tag @movie.image ,size:20*20,class: "style_image" %>
+    <% end %>  
   </div>
   <div class="details">
-    <h3>Movie : <%= @movie.name %></h3>
-    <p><span class='size'>Type :  </span><%=  @movie.category.name %></p>
-    <p><span class='size'>Director :  </span><%= @movie.director %></p>
+    <% if @movie.present? %>
+      <h3>Movie : <%= @movie.name %></h3>
+      <p><span class='size'>Type :  </span><%=  @movie.category.name %></p>
+      <p><span class='size'>Director :  </span><%= @movie.director %></p>
+    <% else %>
+      <p> Movie not found. </p>
+    <% end %>
     <% if !(@movie.released_on > Date.today)  %>
       <p><span class='size'>Rating : </span><%= @movie.rating %><span class="fa fa-star checked"></span></p>
     <% end %>
@@ -56,7 +62,6 @@
       <% end %>
     <% end %>
   </div>
-  
   </div>
 </div>
  

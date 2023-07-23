@@ -3,12 +3,11 @@
   <section class="featured-movies">
     <h2>Movies <%= @category.first.name %></h2>
     <div class="movie-grid margin">
-      <% @category.first.movies.each do |movie| %>
+      <%  @category.first.movies.each do |movie| %>
         <div class="movie">
           <% if movie.image.present? %>
             <%= image_tag movie.image, class: "style_image" %>         
           <% end %>
-
           <h5 class="card-title">Movie: <%= movie.name %></h5>
           <h6><p class="card-text">Type: <%= movie.category.name %></p></h6>
           <h6><p class="card-text">Rating: <%= movie.rating %><span class="fa fa-star checked"></p></h6>

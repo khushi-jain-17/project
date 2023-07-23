@@ -1,4 +1,3 @@
-
 class ReviewsController < ApplicationController
   before_action :authenticate_user! ,only: [:create,:edit,:destroy,:update]
   before_action :movie_object ,only: [:create,:edit,:destroy,:update]
@@ -53,4 +52,3 @@ class ReviewsController < ApplicationController
 
 end
 
-ss
