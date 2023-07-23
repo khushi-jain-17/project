@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
       notice: "Thanks for your review!"
     else
       redirect_to movie_reviews_path(@movie),
-      alert: "you have already given a review"
+      alert: "Sorry, you have already given a review!"
     end
   end
 
@@ -40,11 +40,13 @@ class ReviewsController < ApplicationController
     @review = @movie.reviews.find(params[:id])
   end
  
+  private
 
   def review_params
     params.require(:review).permit(:star, :body)
   end  
 
+  private
 
   def movie_object
     @movie = Movie.find(params[:movie_id])

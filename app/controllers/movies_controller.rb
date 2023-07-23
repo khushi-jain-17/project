@@ -13,32 +13,34 @@ class MoviesController < ApplicationController
   end
 
   def show
-  	@movie 
+    @movie 
   end
 
   def new
-  	@movie= Movie.new
+    @movie = Movie.new
   end
 
-  def create
-  	@movie=current_user.movies.new(movie_params)
-  	if @movie.save
-  		redirect_to @movie, notice: "successfully created movie"
-  	else
-  		render :new, status: :unprocessable_entity
-  	end
-  end	
+  def create 
+    @movie = current_user.movies.new(movie_params)
+    if @movie.save
+      redirect_to @movie, notice: "Successfully created movie!"
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
   def edit
-  	@movie
+    @movie
   end
 
   def update
-  	if @movie.update(movie_params)
-  		redirect_to @movie, notice: "successfully updated"
-  	else
-  		render :edit, status: :unprocessable_entity, alert: "error updating the movie"
-  	end
+    if @movie.update(movie_params)
+      redirect_to @movie,
+      notice: "Successfully Updated your Movie Name!"
+    else
+      render :edit, status: :unprocessable_entity ,
+      alert:"Error updating the movie."
+    end
   end
 
   def destroy
@@ -47,7 +49,7 @@ class MoviesController < ApplicationController
     notice: "Successfully Deleted Movie!"
   end
 
-  def about 
+  def about
   end
 
   def search
@@ -63,15 +65,13 @@ class MoviesController < ApplicationController
   end
 
   private
-
-  def movie_params
-  	params.require(:movie).permit(:name,:rating,:description,:director,:released_on,:category_id,:image)
-  end
-
-  def movie_object
-  	@movie=Movie.find(params[:id])
-  end
   
+  def movie_params
+    params.require(:movie).permit(:name,:rating,:description,:director,:released_on,:category_id,:image)
+  end
+
+ 
+  def movie_object
+    @movie = Movie.find(params[:id])
+  end
 end
-
-

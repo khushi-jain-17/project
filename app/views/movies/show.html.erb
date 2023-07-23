@@ -2,6 +2,8 @@
   <div class="image">
     <% if @movie.present? %>
       <%= image_tag @movie.image ,size:20*20,class: "style_image" %>
+    <% else %>
+      <%= image_tag 'default_image.png', size: 20*20, class: "style_image" %>  
     <% end %>  
   </div>
   <div class="details">
