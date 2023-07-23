@@ -8,8 +8,7 @@
       <div class="movie"> 
         <a href="/movies/<%= movie.id %>">
           <% if movie.image.present? %>
-            <%= image_tag movie.image, class: "style_image" %>
-       
+            <%= image_tag movie.image, class: "style_image" %>       
           <% end %>
          </a>
         <h5 class="card-title">Movie : <%=movie.name%></h5>
