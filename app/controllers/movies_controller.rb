@@ -70,7 +70,6 @@ class MoviesController < ApplicationController
     params.require(:movie).permit(:name,:rating,:description,:director,:released_on,:category_id,:image)
   end
 
- 
   def movie_object
     @movie = Movie.find(params[:id])
   end
