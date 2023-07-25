@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
   before_action :movie_object ,only: [:show,:edit,:destroy,:update]
 
   def index
+    
     if params[:filter] == "upcomming"
       @movies = Movie.where("released_on > ?",Date.today)
     elsif params[:filter] == "popular"
