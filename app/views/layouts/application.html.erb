@@ -18,7 +18,7 @@
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-       
+        <% if user_signed_in? %>
         <li ><a href="http://127.0.0.1:3000/#" class="nav-link link-warning px-2 text-white click mt-1">Home</a></li>
         <li><a href="http://127.0.0.1:3000/?filter=upcomming" class="nav-link link-warning px-2 text-white  mt-1">Upcommig Movies </a></li>
         <li><a href="http://127.0.0.1:3000/?filter=popular" class="nav-link link-warning px-2 text-white  mt-1">Popular Movies</a></li>  
@@ -35,7 +35,7 @@
           </li>
           
         <li><a href="http://127.0.0.1:3000/about" class="nav-link link-warning px-2 text-white  mt-1 mx-2 ">About</a></li>
-        <% if user_signed_in?  %>
+        
           <li class="nav-item">
             <a href="http://127.0.0.1:3000/movies/new" class="nav-link link-warning px-2 text-white me-md-2  mt-1">New Movie</a>
           </li>
@@ -44,7 +44,7 @@
           <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search Movies' %>
         <% end %>  
         <div class="text-end">
-          <% if user_signed_in? && current_user.admin? %>
+          <% if user_signed_in? && current_user.admin? ||  user_signed_in? && current_user.user? %>
               <button type="button" class="btn btn-outline-warning me-2">
                 <%= link_to "Edit Info", edit_user_registration_path, class: "nav-link link-warning px-2 text-white" %>
                 <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-outline-warning me-2" %> 
