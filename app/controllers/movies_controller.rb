@@ -3,7 +3,6 @@ class MoviesController < ApplicationController
   before_action :movie_object ,only: [:show,:edit,:destroy,:update]
 
   def index
-    
     if params[:filter] == "upcomming"
       @movies = Movie.where("released_on > ?",Date.today)
     elsif params[:filter] == "popular"
@@ -46,9 +45,10 @@ class MoviesController < ApplicationController
 
   def destroy
     @movie.destroy
-    redirect_to root_path, status: :see_other,
+    redirect_to movies_path, status: :see_other,
     notice: "Successfully Deleted Movie!"
   end
+
 
   def about
   end

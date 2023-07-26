@@ -18,11 +18,11 @@
     <p><span class='size'>Storyline :  </span><%= @movie.description %></p>
     <p><span class='size'>Released On : </span><%= @movie.released_on %></p>
     <% if user_signed_in? && current_user.admin? %>
-      <button type="button" class="btn btn-outline-warning"><%= link_to "Edit Movie", edit_movie_path ,class: "custom-link" %></button>
-      <button type="button" class="btn btn-outline-warning"><%= link_to "Destroy", movie_path(@movie),class: "custom-link", data: {
+      <button type="button" class="btn btn-outline-warning"><%= link_to "Edit Movie", edit_movie_path(@movie),class: "custom-link" %></button>
+      <button type="button" class="btn btn-outline-warning"><%= link_to "Destroy", movies_path(@movie), data: {
                 turbo_method: :delete,
                 turbo_confirm: "Are you sure?"
-              } %>
+              },class: "custom-link" %>
       </button>
     <% end %>
     <hr>

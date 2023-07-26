@@ -1,17 +1,13 @@
-if Rails.env.development?
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {
-    address:        'smtp.sendgrid.net',
-    port:           '587',
-    authentication: :plain,
-    user_name:      ENV['SENDGRID_USERNAME'],
-    password:       ENV['SENDGRID_PASSWORD'],
-    domain:         'heroku.com',
-    enable_starttls_auto: true
-  }
-end
 
 
-heroku addons:add sendgrid:starter
-heroku congif:get SENDGRID_USERNAME
-heroku config:get SENDGRID_PASSWORD
+
+
+
+
+# heroku addons:add sendgrid:starter
+# heroku congif:get SENDGRID_USERNAME
+# heroku config:get SENDGRID_PASSWORD
+
+
+# heroku config:set SENDGRID_USERNAME=your_sendgrid_username
+# heroku config:set SENDGRID_PASSWORD=your_sendgrid_password
