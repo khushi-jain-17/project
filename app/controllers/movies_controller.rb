@@ -36,16 +36,17 @@ class MoviesController < ApplicationController
   def update
     if @movie.update(movie_params)
       redirect_to @movie,
-      notice: "Successfully Updated your Movie Name!"
+      notice: "Successfully Updated your Movie!"
     else
       render :edit, status: :unprocessable_entity ,
-      alert:"Error updating the movie."
+      alert:"Error"
     end
   end
 
   def destroy
+    @movie = Movie.find(params[:id])
     @movie.destroy
-    redirect_to movies_path, status: :see_other,
+    redirect_to @movie, status: :see_other,
     notice: "Successfully Deleted Movie!"
   end
 

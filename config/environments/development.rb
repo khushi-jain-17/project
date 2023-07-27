@@ -19,35 +19,22 @@ Rails.application.configure do
   
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
-  # config/environments/development.rb
-
+ 
+config.action_mailer.perform_deliveries = true
 config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
-  address: 'smtp.gmail.com',
-  port: 587,
-  domain: 'your-domain.com', # Replace with your actual domain
-  user_name: 'your-gmail-username@gmail.com', # Replace with your Gmail username
-  password: 'your-gmail-password', # Replace with your Gmail password
-  authentication: 'plain',
+  address: 'khushi17@gmail.com',
+  port: 3000, 
+  domain: 'localhost',
+  user_name: 'khushi',
+  password: 'password',
+  authentication: :plain,
   enable_starttls_auto: true
 }
 
 
-
-  #config.action_mailer.delivery_method = :smtp
-  #config.action_mailer.default_url_options = { host: 'localhost:3000' }
-
-  #config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   user_name:      ENV['SENDMAIL_USERNAME'],
-  #   password:       ENV['SENDMAIL_PASSWORD'],
-  #   domain:         ENV['MAIL_HOST'],
-  #   address:       'smtp.gmail.com',
-  #   port:          '587',
-  #   authentication: :plain,
-  #   enable_starttls_auto: true
-  # }
+ 
   
   if Rails.root.join("tmp/caching-dev.txt").exist?
     config.action_controller.perform_caching = true

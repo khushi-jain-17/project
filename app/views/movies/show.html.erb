@@ -17,9 +17,9 @@
     <% end %>
     <p><span class='size'>Storyline :  </span><%= @movie.description %></p>
     <p><span class='size'>Released On : </span><%= @movie.released_on %></p>
-    <% if user_signed_in? && current_user.user? %>
+    <% if user_signed_in? %>
       <button type="button" class="btn btn-outline-warning"><%= link_to "Edit Movie", edit_movie_path(@movie),class: "custom-link" %></button>
-      <button type="button" class="btn btn-outline-warning"><%= link_to "Destroy", movies_path(@movie), data: {
+      <button type="button" class="btn btn-outline-warning"><%= link_to "Destroy", movie_path(@movie), data: {
                 turbo_method: :delete,
                 turbo_confirm: "Are you sure?"
               },class: "custom-link" %>
@@ -31,7 +31,7 @@
       <% @movie.reviews.each do |review| %>
         <p><span class='size'>Star :  </span><%= review.star %></p>
         <p><span class='size'>Comment :  </span><%= review.body %></p>
-        <% if user_signed_in? && current_user.id == review.user_id || user_signed_in? && current_user.admin? %>
+        <% if user_signed_in? && current_user.id == review.user_id %>
           <button type="button" class="btn btn-outline-warning"><%= link_to "Edit Review", edit_movie_review_path(@movie,review),class: "custom-link" %></button>
           <button type="button" class="btn btn-outline-warning"><%= link_to "Destroy", movie_review_path(@movie,review), data: {
                             turbo_method: :delete,
