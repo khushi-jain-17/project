@@ -19,26 +19,22 @@
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <% if user_signed_in? %>
-        <li ><a href="http://127.0.0.1:3000/#" class="nav-link link-warning px-2 text-white click mt-1">Home</a></li>
-        <li><a href="http://127.0.0.1:3000/?filter=upcomming" class="nav-link link-warning px-2 text-white  mt-1">Upcommig Movies </a></li>
-        <li><a href="http://127.0.0.1:3000/?filter=popular" class="nav-link link-warning px-2 text-white  mt-1">Popular Movies</a></li>  
+        <li class="nav-link link-warning px-2 text-white click mt-1"> <%= link_to "Home",root_path %> </li>
+        <li class="nav-link link-warning px-2 text-white mt-1 "> <%= link_to "Upcoming Movies", movies_path(filter:"upcoming") %> </li>
+        <li class="nav-link link-warning px-2 text-white mt-1"> <%= link_to "Popular Movies" , movies_path(filter:"popular") %> </li>  
         <li class="nav-item dropdown">
-            <a class="nav-link link-warning px-2 text-white dropdown-toggle  mt-1" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Category
-            </a>
+            <li class="nav-link link-warning px-2 text-white dropdown-toggle  mt-1" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <%= link_to "Category",category_movies_path %> </li>
+            
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="http://127.0.0.1:3000/category/?category=Bollywood">Bollywood</a>
-              <a class="dropdown-item" href="http://127.0.0.1:3000/category/?category=Hollywood">Hollywood</a>
-              <a class="dropdown-item" href="http://127.0.0.1.3000/
-              category/?category=Tollywood">Tollywood</a>
+              <li class="dropdown-item"> <%= link_to "Bollywood",category_movies_path %> </li>
+              <li class="dropdown-item"> <%= link_to "Hollywood",category_movies_path %> </li>
+              <li class="dropdown-item"> <%= link_to "Tollywood",category_movies_path %> </li>
             </div>
           </li>
           
-        <li><a href="http://127.0.0.1:3000/about" class="nav-link link-warning px-2 text-white  mt-1 mx-2 ">About</a></li>
+        <li class="nav-link link-warning px-2 text-white  mt-1 mx-2 "> <%= link_to "About",about_path %> </li>
         
-          <li class="nav-item">
-            <a href="http://127.0.0.1:3000/movies/new" class="nav-link link-warning px-2 text-white me-md-2  mt-1">New Movie</a>
-          </li>
+          <li class="nav-link link-warning px-2 text-white me-md-2  mt-1"> <%= link_to "New Movie",new_movie_path %> </li> 
 
         <%= form_tag search_path, :method => 'get', class: 'col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3'  do %>
           <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search Movies' %>
