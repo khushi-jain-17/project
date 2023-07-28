@@ -33,6 +33,14 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem 'thin', '1.4.1'
+
+gem 'mailcatcher'
+
+gem 'letter_opener', group: :development
+gem 'mail_view', group: :development
+
+
 # Use Redis adapter to run Action Cable in production
 #gem "redis", "~> 4.0"
 

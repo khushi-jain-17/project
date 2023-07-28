@@ -10,10 +10,10 @@
             <%= image_tag movie.image, class: "style_image" %>       
           <% end %>
          </a>
-        <h5 class="card-title">Movie : <%=movie.name%></h5>
+        <h5 class="card-title">Movie : <%= movie.name %></h5>
         <h6><p class="card-text">Type :<%= movie.category.name %></p></h6>
         <% if movie.rating  != nil %>
-        <h6><p class="card-text">Rating :<%=movie.rating%><span class="fa fa-star checked"></p></h6>
+        <h6><p class="card-text">Rating :<%= movie.rating %><span class="fa fa-star checked"></p></h6>
        <% end %>
         <h6><p class="card-text">Released_on :<%=movie.released_on%></p></h6>
       </div>
