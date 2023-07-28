@@ -26,9 +26,9 @@
             <li class="nav-link link-warning px-2 text-white dropdown-toggle  mt-1" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <%= link_to "Category",category_movies_path %> </li>
             
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li class="dropdown-item"> <%= link_to "Bollywood",category_movies_path %> </li>
-              <li class="dropdown-item"> <%= link_to "Hollywood",category_movies_path %> </li>
-              <li class="dropdown-item"> <%= link_to "Tollywood",category_movies_path %> </li>
+              <li class="dropdown-item"> <%= link_to "Bollywood",category_movies_path(category: "Bollywood") %> </li>
+              <li class="dropdown-item"> <%= link_to "Hollywood",category_movies_path(category: "Hollywood") %> </li>
+              <li class="dropdown-item"> <%= link_to "Tollywood",category_movies_path(category: "Tollywood") %> </li>
             </div>
           </li>
           

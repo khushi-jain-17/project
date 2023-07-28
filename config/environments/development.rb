@@ -32,7 +32,7 @@ config.action_mailer.smtp_settings = {
   authentication: :plain,
   enable_starttls_auto: true
 }
-
+config.action_mailer.default_options = { from: 'devise@example.com' }
 
  
   
@@ -87,7 +87,4 @@ config.action_mailer.smtp_settings = {
   # config.action_cable.disable_request_forgery_protection = true
 
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
 end

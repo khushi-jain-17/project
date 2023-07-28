@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "khushi17@gmail.com"
+  default from: "devise@example.com"
   layout "mailer"
   # "There is something"
 end
