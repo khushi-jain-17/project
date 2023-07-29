@@ -44,10 +44,9 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    @movie = Movie.find(params[:id])
     @movie.destroy
     redirect_to @movie, status: :see_other,
-    notice: "Successfully Deleted Movie!"
+    notice: "Successfully deleted movie!"
   end
 
 
@@ -74,5 +73,8 @@ class MoviesController < ApplicationController
 
   def movie_object
     @movie = Movie.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to movies_path, alert: "Movie not found"
   end
 end
+
