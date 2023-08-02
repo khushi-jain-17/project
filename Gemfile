@@ -39,7 +39,7 @@ gem 'thin', '1.4.1'
 
 gem 'mailcatcher'
 
-gem 'letter_opener', group: :development
+#gem 'letter_opener', group: :development
 gem 'mail_view', group: :development
 
 
