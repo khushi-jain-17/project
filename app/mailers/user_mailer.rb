@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 class UserMailer < ApplicationMailer
   def welcome_email(user)
     @user = user
-    @email = @user.user.email 
-    mail(to: @email, subject: 'Welcome to Our App')
+    mail(to: @user.email, subject: 'Welcome to Our App')
   end
 end

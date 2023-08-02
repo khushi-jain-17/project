@@ -1,11 +1,7 @@
+# frozen_string_literal: true
+
 class CategoriesController < ApplicationController
-  
   def index
-  	byebug
-    if params[:category].present?
-      @category = Category.where(name: params[:category])
-    else
-      @category = Category.all
-    end
+    @category = Category.where(name: params[:category])
   end
 end
