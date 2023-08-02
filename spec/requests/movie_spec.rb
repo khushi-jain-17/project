@@ -57,9 +57,23 @@ RSpec.describe "List of all Movies", type: :request do
       let(:movie) {create (:movie)}
       it "renders edit" do
       	get "/movies/#{movie.id}/edit"
-      	byebug
+      	
    	    expect(response).to be_successful
       end
-    end 
+    end
+
+     describe "PUT /update" do	
+      let(:user) {create (:user) }
+      let(:category) {create (:category) }	
+      let(:movie) {create (:movie)}
+      it "renders update" do
+      	put "/movies/#{movie.id}"
+      	
+   	    expect(response).to be_successful
+      end
+    end
+
+
+
 
 end
