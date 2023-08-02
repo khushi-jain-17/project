@@ -24,10 +24,3 @@ production:
   <<: *default
   database: db/production.sqlite3
   
-# # Using the configuration in database.yml
-# development:
-#   adapter: postgresql
-#   host: localhost
-#   database: myapp_development
-#   username: <%= ENV['DATABASE_USERNAME'] %>
-#   password: <%= ENV['DATABASE_PASSWORD'] %>

@@ -21,6 +21,7 @@ Rails.application.configure do
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
+<<<<<<< HEAD
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
@@ -36,6 +37,34 @@ Rails.application.configure do
   }
 
   if Rails.root.join('tmp/caching-dev.txt').exist?
+=======
+ 
+config.action_mailer.perform_deliveries = true
+config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  address: 'khushi17@gmail.com',
+  port: 3000, 
+  domain: 'localhost',
+  user_name: 'khushi',
+  password: 'password',
+  authentication: :plain,
+  enable_starttls_auto: true
+}
+
+config.action_mailer.delivery_method = :letter_opener_web
+config.action_mailer.delivery_method = :letter_opener
+config.action_mailer.perform_deliveries = true
+config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }  
+
+
+
+config.action_mailer.default_options = { from: 'devise@example.com' }
+
+ 
+  
+  if Rails.root.join("tmp/caching-dev.txt").exist?
+>>>>>>> 55a66941968580ad870a4a7a556fdc3fd063f09e
     config.action_controller.perform_caching = true
     config.action_controller.enable_fragment_cache_logging = true
 
@@ -84,7 +113,11 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
+<<<<<<< HEAD
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
+=======
+
+>>>>>>> 55a66941968580ad870a4a7a556fdc3fd063f09e
 end
