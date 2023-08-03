@@ -79,8 +79,8 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   #config.include Devise::Test::RequestHelpers, type: :request
   # spec/rails_helper.rb (or spec/spec_helper.rb)
-
-
+  config.include Devise::Test::IntegrationHelpers, type: :request
+  
   config.include FactoryBot::Syntax::Methods
 
 

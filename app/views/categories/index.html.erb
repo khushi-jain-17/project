@@ -1,6 +1,6 @@
 <main>
   <section class="featured-movies">
-    <h2>Movies <%= @category.first.name %></h2>
+    <h2>Movies <%= @category.first.name %></h2> 
     <div class="movie-grid margin">
       <% if @category.present? && @category.first.movies.present? %>
         <% @category.first.movies.each do |movie| %>
