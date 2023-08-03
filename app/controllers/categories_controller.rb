@@ -5,7 +5,6 @@ class CategoriesController < ApplicationController
   def index
     @category = Category.where(name: params[:category])
   end
-=======
   
    def index
      if params[:category].present?
@@ -15,7 +14,7 @@ class CategoriesController < ApplicationController
      end
    end
 
->>>>>>> 55a66941968580ad870a4a7a556fdc3fd063f09e
+
 end
 
 

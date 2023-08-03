@@ -71,6 +71,9 @@ gem 'simplecov'
 
  gem 'figaro'
  #gem 'pg'
+ # Gemfile
+ gem 'faker'
+
 
 group :development, :test do
   gem 'database_cleaner-active_record'
