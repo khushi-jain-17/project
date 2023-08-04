@@ -2,24 +2,27 @@ require 'rails_helper'
 
 RSpec.describe Review, type: :model do
   describe "review model testing" do
+    let(:user) {create(:user)}
+    let(:movie) {create(:movie)}
+    let(:review) {create(:review)}
   	it "validates review instance" do
-  		user=User.create(name:'jay',email:'jay@gmail.com')
-  		movie=Movie.create(name:'inception',rating: 3,released_on:'17 Jul 2024')
-
-  		review=Review.new(body:"",star: 4,user:user,movie: movie)
   		expect(review).to be_valid
   	end
   end
     
-  describe "associations" do    
+  describe "belongs to user" do
+    let(:user) {create(:user)}
+    let(:review) {create(:review, user: user)}    
   	it "expect be associated with a user" do
-       no_user_review = Review.new(:user => nil)
-       expect(no_user_review).to be_invalid
+      expect(review).to be_valid
     end
+  end  
 
-    it "expect be associated with a movie" do
-    	no_movie_review = Review.new(:movie => nil)
-    	expect(no_movie_review).to be_invalid
+    describe "belongs to movie" do
+      let(:movie) {create(:movie)}
+      let(:review) {create(:review, movie: movie)}
+     it "expect be associated with a movie" do
+    	expect(review).to be_valid
+     end
     end
-  end
 end

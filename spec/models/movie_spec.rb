@@ -21,4 +21,11 @@ RSpec.describe Movie, type: :model do
     	expect(no_category_movie).to_not be_valid
     end
   end
+
+  describe "has many association" do
+    it "has many reviews" do
+      should respond_to(:reviews)
+    end
+  end  
+
 end
