@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "Movies Controller", type: :request do
-	  #let(:user) { create(:user) }
-      #let(:category) { create(:category) }
-      #let(:movie) { create(:movie, user: user, category: category) }
+	   #let(:user) { create(:user) }
+     #let(:category) { create(:category) }
+     #let(:movie) { create(:movie, user: user, category: category) }
 
     # before do
     #   sign_in user

@@ -4,7 +4,7 @@ RSpec.describe "Reviews", type: :request do
 
 	describe "POST /movies/:movie_id/reviews" do
 		let(:user) { create(:user) }
-     	let(:movie) { create(:movie) }
+    let(:movie) { create(:movie) }
 		let(:review) {create(:review,user: user,movie: movie)}
       it "works!" do
         post "/movies/#{movie.id}/reviews"
